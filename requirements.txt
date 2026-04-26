@@ -1,0 +1,9 @@
+numpy>=1.24
+scipy>=1.10
+torch>=2.0
+matplotlib>=3.7
+pyyaml>=6.0
+tqdm>=4.65
+qutip>=5.0
+pennylane>=0.30
+tensorboard>=2.13

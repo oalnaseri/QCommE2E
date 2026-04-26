@@ -1,0 +1,26 @@
+simulation:
+  num_symbols: 20000
+  snr_db: 25
+  num_pilots: 2000
+
+channel:
+  type: "turbulence"
+  turbulence_model: "malaga"
+  alpha: 2.5
+  beta: 2.0
+  pointing_error: 1.0e-6
+  beam_waist: 0.02
+  link_distance_m: 1000
+
+receiver:
+  equalizer: "neural"
+  decoder: "qae"
+  decoder_params:
+    qae_type: "spatial_mode"
+    num_layers: 4
+    latent_dim: 2
+
+training:
+  epochs: 200
+  lr: 5e-4
+  objective: "neg_ser"

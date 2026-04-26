@@ -1,0 +1,26 @@
+seed: 42
+simulation:
+  num_symbols: 10000
+  snr_db: 20
+  num_pilots: 1000
+  batch_size: 512
+
+channel:
+  type: "bosonic"
+  loss_db: 3.0
+  noise_factor: 0.01
+
+transmitter:
+  modulation: "QPSK"
+  encoder: "identity"
+
+receiver:
+  detector: "homodyne"
+  decoder: "identity"
+  equalizer: null
+
+training:
+  epochs: 100
+  lr: 1e-3
+  optimizer: "Adam"
+  objective: "neg_gmi"

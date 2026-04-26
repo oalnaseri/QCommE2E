@@ -1,0 +1,22 @@
+name: quantum-comm-sim
+channels:
+  - conda-forge
+  - pytorch
+dependencies:
+  - python=3.11
+  - numpy
+  - scipy
+  - pytorch
+  - matplotlib
+  - pyyaml
+  - tqdm
+  - pytest
+  - pip
+  - pip:
+    - qutip>=5.0
+    - pennylane
+    - tensorboard
+    - pylint
+    - black
+    - jupyter
+    - ipywidgets

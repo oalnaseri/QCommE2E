@@ -1,0 +1,21 @@
+simulation:
+  num_symbols: 50000
+  snr_db: 15
+  num_pilots: 2000
+
+channel:
+  type: "composite"
+  components:
+    - type: "pmd"
+      dgd_mean_ps: 1.0
+      correlation_length_km: 1.0
+    - type: "bosonic"
+      loss_db: 0.2
+      noise_factor: 0.005
+  fiber_length_km: 100
+
+receiver:
+  equalizer: "kalman"
+  equalizer_params:
+    quaternion_enabled: true
+    adaptation_rate: 0.01

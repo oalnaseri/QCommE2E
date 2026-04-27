@@ -1,4 +1,4 @@
-name: quantum-comm-sim
+name: QCommE2E
 channels:
   - conda-forge
   - pytorch

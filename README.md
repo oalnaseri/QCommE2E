@@ -1,6 +1,6 @@
 # Quantum Communication Simulator
 
-End-to-End Quantum Communication System Simulator focusing on quantum channel modeling, transceiver components, and learned compensation via quantum autoencoders (QAE).
+End-to-End Quantum Communication System (QCommE2E) focusing on quantum channel modeling, transceiver components, and learned compensation via quantum autoencoders (QAE).
 
 ## Features
 
@@ -15,7 +15,7 @@ End-to-End Quantum Communication System Simulator focusing on quantum channel mo
 
 ```bash
 conda env create -f environment.yml
-conda activate quantum-comm-sim
+conda activate QCommE2E
 pip install -e ".[dev]"
 
 python experiments/fso_turbulence_e2e/run.py
@@ -25,7 +25,7 @@ pytest tests/ -v
 ## Repository Structure
 
 ```
-quantum-comm-sim/
+QCommE2E/
 ├── src/quantum_comm_sim/       # Core library
 ├── config/                       # YAML experiment configs
 ├── experiments/                  # Reproducible experiment scripts

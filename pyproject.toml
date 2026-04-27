@@ -10,7 +10,7 @@ readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.10"
 authors = [
-    {name = "Researcher", email = "researcher@example.de"}
+    {name = "Researcher", email = "omar.alnaseri@ieee.org"}
 ]
 keywords = ["quantum", "communication", "simulation", "autoencoder", "FSO"]
 classifiers = [
@@ -41,8 +41,8 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/quantum-comm-sim"
-Issues = "https://github.com/yourusername/quantum-comm-sim/issues"
+Homepage = "https://github.com/oalnaseri/QCommE2E"
+Issues = "https://github.com/oalnaseri/QCommE2E/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]

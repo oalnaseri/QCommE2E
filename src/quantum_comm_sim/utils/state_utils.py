@@ -1,3 +1,10 @@
+"""
+Academic References:
+  - Nielsen, M.A. & Chuang, I.L., Quantum Computation and Quantum Information,
+    Cambridge University Press, 2010. Ch. 2 (Density matrices, state vectors).
+  - Wilde, M.M., Quantum Information Theory, Cambridge University Press, 2013.
+"""
+
 """Density matrix and state vector helpers."""
 
 import numpy as np

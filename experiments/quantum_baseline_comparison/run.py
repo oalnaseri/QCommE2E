@@ -1,3 +1,11 @@
+"""
+Academic References:
+  - Nielsen, M.A. & Chuang, I.L., Quantum Computation and Quantum Information,
+    Cambridge University Press, 2010. Ch. 8 (Quantum channels).
+  - Bennett, C.H. et al., Capacities of quantum erasure channels,
+    Phys. Rev. Lett., 78(16), 3217, 1997.
+"""
+
 """Experiment: Baseline comparison across quantum channels."""
 
 import numpy as np

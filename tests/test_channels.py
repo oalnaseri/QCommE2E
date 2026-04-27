@@ -1,3 +1,10 @@
+"""
+Academic References:
+  - Nielsen, M.A. & Chuang, I.L., Quantum Computation and Quantum Information,
+    Cambridge University Press, 2010.
+  - pytest documentation: https://docs.pytest.org/
+"""
+
 """Unit tests for quantum channels."""
 
 import numpy as np

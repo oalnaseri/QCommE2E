@@ -1,3 +1,10 @@
+"""
+Academic References:
+  - Gerry, C.C. & Knight, P.L., Introductory Quantum Optics, Cambridge, 2005.
+  - Leonhardt, U., Measuring the Quantum State of Light, Cambridge, 1997.
+  - Wiseman, H.M. & Milburn, G.J., Quantum Measurement and Control, Cambridge, 2009.
+"""
+
 """Detection schemes."""
 
 import numpy as np

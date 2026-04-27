@@ -1,3 +1,11 @@
+"""
+Academic References:
+  - Bennett, C.H. et al., Capacities of quantum erasure channels,
+    Physical Review Letters, 78(16), 3217, 1997.
+  - Grassl, M. et al., Quantum erasure-correcting codes,
+    arXiv:quant-ph/9610042, 1996.
+"""
+
 """Quantum erasure channel."""
 
 import numpy as np

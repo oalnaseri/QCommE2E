@@ -1,3 +1,14 @@
+"""
+Academic References:
+  - Giovannetti, V. et al., Bosonic Gaussian channels,
+    arXiv:quant-ph/0404050, 2004.
+  - Holevo, A.S. & Werner, R.F., Evaluating capacities of bosonic Gaussian channels,
+    Physical Review A, 63(3), 032312, 2001.
+  - Serafini, A., Quantum Continuous Variables, CRC Press, 2017.
+  - Weedbrook, C. et al., Gaussian quantum information,
+    Reviews of Modern Physics, 84(2), 621, 2012.
+"""
+
 """Bosonic Gaussian channel (loss + noise)."""
 
 import numpy as np

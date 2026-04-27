@@ -1,3 +1,13 @@
+"""
+Academic References:
+  - Jurado-Navas, A. et al., A unified statistical model for Malaga distributed optical
+    scattering communications, Optics Communications, 468, 126204, 2020.
+  - Al-Habash, M.A. et al., Mathematical model for the irradiance PDF of a laser beam
+    propagating through turbulent media, Optical Engineering, 40(8), 1554-1562, 2001.
+  - Romero, J. et al., Quantum autoencoders for efficient compression of quantum data,
+    Quantum Sci. Technol., 2(4), 045001, 2017.
+"""
+
 """Experiment: FSO turbulence with QAE E2E training."""
 
 import numpy as np

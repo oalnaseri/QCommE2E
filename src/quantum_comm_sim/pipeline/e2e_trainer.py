@@ -1,3 +1,13 @@
+"""
+Academic References:
+  - Gumus, K. et al., End-to-End Learning of Geometrical Shaping Maximizing
+    Generalized Mutual Information, arXiv:1912.05638, 2019.
+  - OShea, T.J. et al., Deep learning based autoencoder for non-linear wireless
+    communication systems, arXiv:1707.08008, 2017.
+  - Felzmann, R. et al., GMI Optimisation for End-to-End Learning-based
+    Probabilistic Constellation Shaping, IEEE, 2024.
+"""
+
 """Gradient-based end-to-end training of TX/RX parameters."""
 
 import torch

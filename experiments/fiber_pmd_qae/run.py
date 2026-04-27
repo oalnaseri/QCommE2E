@@ -1,3 +1,12 @@
+"""
+Academic References:
+  - Poole, C.D. & Wagner, R.E., Phenomenological approach to polarization dispersion
+    in long single-mode fibers, Electronics Letters, 22(19), 1029-1030, 1986.
+  - IntechOpen, Applications of Kalman Filters for Coherent Optical Communication Systems,
+    2017.
+  - Gordon, J.P. & Kogelnik, H., PMD fundamentals, PNAS, 97(9), 4541-4550, 2000.
+"""
+
 """Experiment: Fiber PMD with QAE compensation."""
 
 import numpy as np

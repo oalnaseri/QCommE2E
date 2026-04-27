@@ -1,3 +1,12 @@
+"""
+Academic References:
+  - Jozsa, R., Fidelity for mixed quantum states, J. Mod. Opt., 41(12), 2315-2323, 1994.
+  - Nielsen, M.A. & Chuang, I.L., Quantum Computation and Quantum Information,
+    Cambridge University Press, 2010. Sec. 9.2.3 (Fidelity).
+  - Uhlmann, A., The transition probability in the state space of a *-algebra,
+    Reports on Mathematical Physics, 9(2), 273-279, 1976.
+"""
+
 """Quantum fidelity metrics."""
 
 import numpy as np

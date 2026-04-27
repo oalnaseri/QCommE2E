@@ -1,3 +1,15 @@
+"""
+Academic References:
+  - Jurado-Navas, A. et al., A unified statistical model for Malaga distributed optical
+    scattering communications, Optics Communications, 468, 126204, 2020.
+  - Jurado-Navas, A. et al., A unifying statistical model for atmospheric optical
+    scintillation, arXiv:1202.1798, 2012.
+  - Al-Habash, M.A. et al., Mathematical model for the irradiance PDF of a laser beam
+    propagating through turbulent media, Optical Engineering, 40(8), 1554-1562, 2001.
+  - Yang, F. et al., Performance Analysis of Free-Space Optical Links Over Malaga (M)
+    Turbulence Channels with Pointing Errors, arXiv:1805.05572, 2018.
+"""
+
 """FSO turbulence channel (Malaga / Kolmogorov)."""
 
 import numpy as np

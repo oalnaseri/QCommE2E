@@ -1,3 +1,9 @@
+"""
+Academic References:
+  - Proakis, J.G. & Salehi, M., Digital Communications, 5th Ed., McGraw-Hill, 2008.
+  - Sklar, B., Digital Communications: Fundamentals and Applications, 2nd Ed., Prentice Hall, 2001.
+"""
+
 """Bit and symbol error rate metrics."""
 
 import numpy as np

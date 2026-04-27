@@ -1,3 +1,13 @@
+"""
+Academic References:
+  - Kandala, A. et al., Hardware-efficient variational quantum eigensolver for
+    small molecules and quantum magnets, Nature, 549, 242-246, 2017.
+  - Cerezo, M. et al., Variational quantum algorithms,
+    Nature Reviews Physics, 3, 625-644, 2021.
+  - Romero, J. et al., Quantum autoencoders for efficient compression of quantum data,
+    Quantum Sci. Technol., 2(4), 045001, 2017.
+"""
+
 """Variational QAE with fully parameterized ansatz."""
 
 import pennylane as qml

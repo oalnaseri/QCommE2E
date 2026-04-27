@@ -1,3 +1,15 @@
+"""
+Academic References:
+  - Kalman, R.E., A new approach to linear filtering and prediction problems,
+    Journal of Basic Engineering, 82(1), 35-45, 1960.
+  - Godard, D.N., Self-recovering equalization and carrier tracking in two-dimensional
+    data communication systems, IEEE Trans. Commun., 28(11), 1867-1875, 1980.
+  - IntechOpen, Applications of Kalman Filters for Coherent Optical Communication Systems,
+    2017 (Applications in PMD/CD tracking).
+  - Wohl, M. et al., A robust quaternion based Kalman filter using a gradient descent
+    algorithm for inertial measurement units, 2013.
+"""
+
 """Quaternion-based Kalman adaptive equalizer for PMD compensation."""
 
 import numpy as np

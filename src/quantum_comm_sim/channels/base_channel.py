@@ -1,3 +1,13 @@
+"""
+Academic References:
+  - Nielsen, M.A. & Chuang, I.L., Quantum Computation and Quantum Information,
+    Cambridge University Press, 2010. Ch. 8 (Quantum Channels, Kraus operators).
+  - Choi, M.-D., Completely positive linear maps on complex matrices,
+    Linear Algebra and its Applications, 1975.
+  - Kraus, K., States, Effects, and Operations, Springer, 1983.
+  - Wilde, M.M., Quantum Information Theory, Cambridge University Press, 2013.
+"""
+
 """Abstract base for quantum channels using Kraus formalism."""
 
 from abc import ABC, abstractmethod

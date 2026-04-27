@@ -1,3 +1,11 @@
+"""
+Academic References:
+  - OShea, T.J. & Hoydis, J., An Introduction to Deep Learning for the Physical Layer,
+    IEEE Trans. Cogn. Commun. Netw., 3(4), 563-575, 2017.
+  - Dorner, S. et al., Deep learning based communication over the air,
+    IEEE J. Sel. Topics Signal Process., 12(1), 132-143, 2018.
+"""
+
 """End-to-end simulation runner."""
 
 import numpy as np

@@ -1,3 +1,11 @@
+"""
+Academic References:
+  - OShea, T.J. & Hoydis, J., An Introduction to Deep Learning for the Physical Layer,
+    IEEE Trans. Cogn. Commun. Netw., 3(4), 563-575, 2017.
+  - Felix, A. et al., OFDM Autoencoder for End-to-End Learning of Communications Systems,
+    IEEE SPAWC, 2018.
+"""
+
 """Quantum receiver with detection and decoding."""
 
 import numpy as np

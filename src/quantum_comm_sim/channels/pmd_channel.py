@@ -1,3 +1,13 @@
+"""
+Academic References:
+  - Gordon, J.P. & Kogelnik, H., PMD fundamentals: polarization mode dispersion
+    in optical fibers, Proceedings of the National Academy of Sciences, 97(9), 4541-4550, 2000.
+  - Poole, C.D. & Wagner, R.E., Phenomenological approach to polarization dispersion
+    in long single-mode fibers, Electronics Letters, 22(19), 1029-1030, 1986.
+  - Wai, P.K.A. & Menyuk, C.R., Polarization mode dispersion, decorrelations,
+    and fiber modeling, J. Lightwave Technol., 14(2), 148-157, 1996.
+"""
+
 """Polarization Mode Dispersion (PMD) channel."""
 
 import numpy as np

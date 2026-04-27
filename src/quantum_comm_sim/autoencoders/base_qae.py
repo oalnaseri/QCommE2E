@@ -1,3 +1,13 @@
+"""
+Academic References:
+  - Romero, J. et al., Quantum autoencoders for efficient compression of quantum data,
+    Quantum Sci. Technol., 2(4), 045001, 2017.
+  - Bravo-Prieto, C. et al., Quantum autoencoders with enhanced data encoding,
+    arXiv:2010.06599, 2020.
+  - Bergholm, V. et al., PennyLane: Automatic differentiation of hybrid
+    quantum-classical computations, arXiv:1811.04968, 2018.
+"""
+
 """Base class for quantum autoencoders."""
 
 import pennylane as qml

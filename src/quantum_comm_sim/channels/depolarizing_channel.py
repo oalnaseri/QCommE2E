@@ -1,3 +1,10 @@
+"""
+Academic References:
+  - Nielsen, M.A. & Chuang, I.L., Quantum Computation and Quantum Information,
+    Cambridge University Press, 2010. Sec. 8.3 (Depolarizing channel).
+  - Preskill, J., Quantum Computation, Lecture Notes, Caltech, 1998-2024.
+"""
+
 """Depolarizing qubit channel."""
 
 import numpy as np

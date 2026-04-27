@@ -1,3 +1,10 @@
+"""
+Academic References:
+  - Nielsen, M.A. & Chuang, I.L., Quantum Computation and Quantum Information,
+    Cambridge University Press, 2010. Sec. 8.3 (Phase damping / dephasing).
+  - Preskill, J., Quantum Computation, Lecture Notes, Caltech.
+"""
+
 """Dephasing (phase damping) channel."""
 
 import numpy as np

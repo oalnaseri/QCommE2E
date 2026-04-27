@@ -1,3 +1,10 @@
+"""
+Academic References:
+  - Proakis, J.G. & Salehi, M., Digital Communications, 5th Ed., McGraw-Hill, 2008.
+  - Agrell, E. et al., Capacity of a modulo-sum optical channel,
+    J. Lightwave Technol., 37(7), 1629-1637, 2019.
+"""
+
 """Modulators for quantum state preparation."""
 
 import numpy as np

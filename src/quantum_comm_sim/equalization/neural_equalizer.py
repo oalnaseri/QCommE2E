@@ -1,3 +1,13 @@
+"""
+Academic References:
+  - OShea, T.J. & Hoydis, J., An Introduction to Deep Learning for the Physical Layer,
+    IEEE Trans. Cogn. Commun. Netw., 3(4), 563-575, 2017.
+  - Honkala, M. et al., DeepRx: Fully convolutional deep learning receiver,
+    IEEE Trans. Wireless Commun., 20(6), 3921-3936, 2021.
+  - Khan, F.N. et al., Modulation format identification in coherent receivers
+    using deep machine learning, IEEE Photon. Technol. Lett., 28(17), 1886-1889, 2016.
+"""
+
 """Neural equalizer (GNN / deep unfolding)."""
 
 import torch

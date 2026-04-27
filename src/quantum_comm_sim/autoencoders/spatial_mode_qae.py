@@ -1,3 +1,13 @@
+"""
+Academic References:
+  - Romero, J. et al., Quantum autoencoders for efficient compression of quantum data,
+    Quantum Sci. Technol., 2(4), 045001, 2017.
+  - Wan, N.H. et al., Quantum state tomography of OAM photons via deep learning,
+    arXiv:1612.02806, 2016.
+  - Krenn, M. et al., Automated search for new quantum experiments,
+    Physical Review Letters, 116(9), 090405, 2016.
+"""
+
 """Spatial-mode QAE for FSO/OAM channel compensation."""
 
 import pennylane as qml

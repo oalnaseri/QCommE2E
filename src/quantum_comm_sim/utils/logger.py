@@ -1,3 +1,8 @@
+"""
+Academic References:
+  - Python Logging HOWTO, https://docs.python.org/3/howto/logging.html
+"""
+
 """Logging utilities."""
 
 import logging

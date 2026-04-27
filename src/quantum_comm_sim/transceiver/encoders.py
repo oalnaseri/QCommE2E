@@ -1,3 +1,10 @@
+"""
+Academic References:
+  - Gottesman, D., Stabilizer Codes and Quantum Error Correction,
+    arXiv:quant-ph/9705052, 1997 (Caltech PhD thesis).
+  - Lidar, D.A. & Brun, T.A. (Eds.), Quantum Error Correction, Cambridge, 2013.
+"""
+
 """Quantum error encoders."""
 
 import numpy as np

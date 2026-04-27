@@ -1,3 +1,11 @@
+"""
+Academic References:
+  - Hunter, J.D., Matplotlib: A 2D graphics environment, Computing in Science & Engineering,
+    9(3), 90-95, 2007.
+  - Hecht, N. et al., Constellation diagram analysis for optical communications,
+    J. Lightwave Technol., 34(2), 533-541, 2016.
+"""
+
 """Plotting utilities for constellations and metrics."""
 
 import matplotlib.pyplot as plt

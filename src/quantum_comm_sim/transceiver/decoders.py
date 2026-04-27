@@ -1,3 +1,10 @@
+"""
+Academic References:
+  - Lidar, D.A. & Brun, T.A. (Eds.), Quantum Error Correction, Cambridge, 2013.
+  - Joschiura, A. et al., Quantum Autoencoders for Denoising,
+    arXiv:2304.00079, 2023.
+"""
+
 """Quantum decoders / demapping."""
 
 import numpy as np

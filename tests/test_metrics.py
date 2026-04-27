@@ -1,3 +1,9 @@
+"""
+Academic References:
+  - Proakis, J.G. & Salehi, M., Digital Communications, 5th Ed., McGraw-Hill, 2008.
+  - pytest documentation: https://docs.pytest.org/
+"""
+
 """Unit tests for metrics."""
 
 import numpy as np

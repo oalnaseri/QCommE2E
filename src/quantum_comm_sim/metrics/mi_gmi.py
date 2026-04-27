@@ -1,3 +1,13 @@
+"""
+Academic References:
+  - Alvarado, A. et al., Replacing the Soft-Decision FEC Limit Paradigm in the
+    Design of Optical Communication Systems, J. Lightwave Technol., 33(20), 4338-4352, 2015.
+  - Gumus, K. et al., End-to-End Learning of Geometrical Shaping Maximizing
+    Generalized Mutual Information, arXiv:1912.05638, 2019.
+  - Bocherer, G. et al., Bandwidth efficient and rate-matched low-density parity-check
+    coded modulation, IEEE Trans. Commun., 63(12), 4651-4665, 2015.
+"""
+
 """Mutual information and generalized mutual information."""
 
 import numpy as np

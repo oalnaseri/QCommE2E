@@ -1,3 +1,13 @@
+"""
+Academic References:
+  - Perez-Salinas, A. et al., Data re-uploading for a universal quantum classifier,
+    Quantum, 4, 226, 2020.
+  - Perez-Salinas, A. et al., Universal quantum classifier with shallow circuits,
+    arXiv:1904.12260, 2019.
+  - Schuld, M. & Petruccione, F., Machine Learning with Quantum Computers,
+    Springer, 2021.
+"""
+
 """Data re-uploading QAE."""
 
 import pennylane as qml

@@ -34,5 +34,17 @@ QCommE2E/
 └── docs/                         # Documentation
 ```
 
-## License
-MIT
+## If you use this code, please cite the following paper
+
+Fading-Memory Quaternion-Based Kalman Filter for Quantum Channel PMD Compensation <https://doi.org/10.1109/ACCESS.2026.3675938>
+
+```
+@ARTICLE{alnaseri2026fading,
+  author={Alnaseri, Omar and Himeur, Yassine and Titouni, Salem and Timmermann, Jens and Atalla, Shadi},
+  journal={IEEE Access}, 
+  title={Fading-Memory Quaternion-Based Kalman Filter for Quantum Channel PMD Compensation}, 
+  year={2026},
+  volume={14},
+  number={},
+  pages={46943-46952},
+  doi={10.1109/ACCESS.2026.3675938}}

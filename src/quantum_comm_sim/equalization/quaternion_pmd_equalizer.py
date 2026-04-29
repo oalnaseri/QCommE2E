@@ -7,7 +7,7 @@ Academic References:
 """
 
 import numpy as np
-from .quaternion_pmd_channel import (
+from quantum_comm_sim.channels.quaternion_pmd_channel import (
     quaternion_product,
     quaternion_conjugate,
     quaternion_inverse,
@@ -152,7 +152,7 @@ class QuaternionKalmanBaseline:
             self.qcomp[:, f] = quaternion_boxplus(qc, self.update_sign * delta)
             self.qcomp[:, f] = self.qcomp[:, f] / (np.linalg.norm(self.qcomp[:, f]) + 1e-12)
             total_errnorm += float(np.linalg.norm(nu))
-            total_mse += float(nu.T @ nu)
+            total_mse += float((nu.T @ nu).item())
         avg_mse = total_mse / self.numfreq
         avg_err = total_errnorm / self.numfreq
         self.mse_history.append(avg_mse)
@@ -274,11 +274,11 @@ class TrueQuaternionRLS:
             total_mse += error_dist**2
             u = e_vec.reshape(3, 1)
             P_f = self.P[f]
-            denom = self.lam + u.T @ P_f @ u
-            k = (P_f @ u) / float(denom)
+            denom = self.lam + float((u.T @ P_f @ u).item())
+            k = (P_f @ u) / denom
             P_new = (P_f - k @ u.T @ P_f) / self.lam
             self.P[f] = 0.5 * (P_new + P_new.T)
-            delta_theta = (k @ (u)).flatten()
+            delta_theta = k.flatten()
             self.q_comp[:, f] = quaternion_boxplus(q_c, -delta_theta)
         avg_error_norm = total_error_norm / self.num_freq
         avg_mse = total_mse / self.num_freq
@@ -364,7 +364,7 @@ class QuaternionMEKF:
             self.qcomp[:, f] = quaternion_boxplus(qc, self.update_sign * delta)
             self.qcomp[:, f] = self.qcomp[:, f] / (np.linalg.norm(self.qcomp[:, f]) + 1e-12)
             total_errnorm += float(np.linalg.norm(nu))
-            total_mse += float(nu.T @ nu)
+            total_mse += float((nu.T @ nu).item())
         avg_mse = total_mse / self.numfreq
         avg_err = total_errnorm / self.numfreq
         self.mse_history.append(avg_mse)

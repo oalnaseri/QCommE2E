@@ -31,10 +31,22 @@ class BosonicChannel(BaseChannel):
         self.transmission = 10 ** (-loss_db / 10.0)
 
     def apply(self, rho: np.ndarray) -> np.ndarray:
-        # Placeholder: apply transmission scaling and add small thermal noise
-        rho_out = self.transmission * rho
-        noise = self.noise_factor * np.eye(self.dim) / self.dim
-        rho_out = rho_out + noise
-        # Renormalize trace
+        """Apply a Gaussian-loss-like map to a truncated mode.
+
+        In a full CV model, this would act on an infinite-dimensional
+        Fock space. Here we use a simple surrogate on the 2x2 density
+        matrix representing the lowest two Fock states or an encoded
+        qubit. The map rescales the off-diagonal elements and mixes in
+        a small thermal state on the diagonal.
+        """
+        rho = np.asarray(rho, dtype=complex)
+        # Beam-splitter transmission on coherences
+        t = np.sqrt(self.transmission)
+        rho_out = rho.copy()
+        rho_out[0, 1] *= t
+        rho_out[1, 0] *= t
+        # Mix diagonal towards a thermal-like state
+        noise = self.noise_factor * np.eye(self.dim, dtype=complex) / self.dim
+        rho_out = (1 - self.noise_factor) * rho_out + noise
         rho_out = rho_out / np.trace(rho_out)
         return rho_out

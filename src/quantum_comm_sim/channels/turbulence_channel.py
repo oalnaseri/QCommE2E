@@ -40,8 +40,24 @@ class TurbulenceChannel(BaseChannel):
         self.link_distance_m = link_distance_m
 
     def apply(self, rho: np.ndarray) -> np.ndarray:
-        # Placeholder: apply log-normal fading to diagonal entries
-        h = np.random.lognormal(0, 0.5)
-        rho_out = h * rho
+        """Apply turbulence-induced fading to an optical mode.
+
+        We model the effect of turbulence as a random log-normal
+        attenuation of the optical field, which in this truncated
+        representation leads to a rescaling of the off-diagonal
+        elements and a fluctuation of the diagonal populations.
+        """
+        rho = np.asarray(rho, dtype=complex)
+        # Log-normal fading coefficient (Malaga-inspired)
+        h = np.random.lognormal(mean=0.0, sigma=0.5)
+        # Apply fading to coherences and bias diagonals
+        rho_out = rho.copy()
+        rho_out[0, 1] *= h
+        rho_out[1, 0] *= h
+        # Let the diagonal fluctuate mildly around the original values
+        diag = np.diag(rho_out).real
+        diag = diag / (diag.sum() + 1e-12)
+        rho_out[0, 0] = diag[0]
+        rho_out[1, 1] = diag[1]
         rho_out = rho_out / np.trace(rho_out)
         return rho_out

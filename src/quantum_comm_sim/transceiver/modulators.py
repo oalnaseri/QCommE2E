@@ -22,6 +22,16 @@ class Modulator(ABC):
 class QPSKModulator(Modulator):
     """QPSK modulation for coherent states or qubits."""
 
+    BIT_LABELS = np.array(
+        [
+            [0, 0],
+            [0, 1],
+            [1, 0],
+            [1, 1],
+        ],
+        dtype=int,
+    )
+
     def __init__(self, dim: int = 2):
         self.dim = dim
         self.constellation = {
@@ -38,3 +48,16 @@ class QPSKModulator(Modulator):
             rho = np.outer(psi, psi.conj())
             states.append(rho)
         return np.stack(states)
+
+    def symbol_alphabet(self) -> np.ndarray:
+        """Return the supported symbol labels in detector order."""
+        return np.array(sorted(self.constellation), dtype=int)
+
+    def reference_states(self) -> np.ndarray:
+        """Return the density-matrix codebook used by this modulator."""
+        return self.modulate(self.symbol_alphabet())
+
+    def symbols_to_bits(self, symbols: np.ndarray) -> np.ndarray:
+        """Map symbol labels to a fixed two-bit representation."""
+        symbol_array = np.asarray(symbols, dtype=int) % len(self.BIT_LABELS)
+        return self.BIT_LABELS[symbol_array]

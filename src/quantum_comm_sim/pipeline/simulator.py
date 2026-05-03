@@ -45,7 +45,13 @@ class Simulator:
             rx_states.append(self.channel.apply(state))
         rx_states = np.array(rx_states)
         rx_symbols = self.receiver.receive(rx_states)
-        ber = compute_ber(symbols % 2, rx_symbols % 2)
+        if not hasattr(self.transmitter.modulator, "symbols_to_bits"):
+            raise TypeError(
+                "Simulator BER estimation requires a modulator with a symbols_to_bits method"
+            )
+        tx_bits = self.transmitter.modulator.symbols_to_bits(symbols).reshape(-1)
+        rx_bits = self.transmitter.modulator.symbols_to_bits(rx_symbols).reshape(-1)
+        ber = compute_ber(tx_bits, rx_bits)
         ser = compute_ser(symbols, rx_symbols)
         gmi = estimate_gmi(symbols, rx_symbols)
         logger.info(f"BER={ber:.4e}, SER={ser:.4e}, GMI={gmi:.4f}")

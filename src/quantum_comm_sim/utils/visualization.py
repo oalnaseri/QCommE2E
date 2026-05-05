@@ -21,12 +21,26 @@ SYMBOL_COLORS = {
     1: "tab:orange",
     2: "tab:green",
     3: "tab:red",
+    -1: "tab:gray",
 }
+
+
+def _extract_qubit_block(states: np.ndarray) -> np.ndarray:
+    """Extract the leading 2x2 qubit block from a density matrix batch."""
+    states = np.asarray(states)
+
+    if states.ndim == 3 and states.shape[1] == states.shape[2] and states.shape[1] >= 2:
+        return states[:, :2, :2]
+
+    if states.ndim == 2 and states.shape[0] == states.shape[1] and states.shape[0] >= 2:
+        return states[:2, :2]
+
+    return states
 
 
 def states_to_constellation(states: np.ndarray) -> np.ndarray:
     """Project simulator states into 2D constellation coordinates."""
-    states = np.asarray(states)
+    states = np.asarray(_extract_qubit_block(states))
 
     if states.ndim == 3 and states.shape[1:] == (2, 2):
         in_phase = 2.0 * np.real(states[:, 0, 1])
@@ -63,8 +77,8 @@ def states_to_constellation(states: np.ndarray) -> np.ndarray:
 
 
 def density_to_bloch(rho_batch: np.ndarray) -> np.ndarray:
-    """Map 2x2 density matrices to Bloch vectors."""
-    return BlochVisualizer.density_to_bloch(rho_batch)
+    """Map density matrices to Bloch vectors using the leading qubit block."""
+    return BlochVisualizer.density_to_bloch(_extract_qubit_block(rho_batch))
 
 
 def _resolve_bloch_class():

@@ -54,6 +54,7 @@ class PrettyGoodMeasurementDetector(Detector):
         reference_states: np.ndarray,
         labels: np.ndarray | None = None,
         priors: np.ndarray | None = None,
+        erasure_label: int | None = -1,
     ):
         states = np.asarray(reference_states, dtype=complex)
         if states.ndim != 3 or states.shape[1] != states.shape[2]:
@@ -89,6 +90,7 @@ class PrettyGoodMeasurementDetector(Detector):
         self.labels = labels
         self.priors = priors
         self.povm = np.stack(povm)
+        self.erasure_label = erasure_label
 
     def detect(self, states: np.ndarray) -> np.ndarray:
         rho = np.asarray(states, dtype=complex)
@@ -99,6 +101,27 @@ class PrettyGoodMeasurementDetector(Detector):
         elif rho.ndim != 3:
             raise ValueError("states must have shape (N, dim, dim) or (dim, dim)")
 
-        scores = np.real(np.einsum("aij,nji->na", self.povm, rho))
-        detected = self.labels[np.argmax(scores, axis=1)]
+        state_dim = rho.shape[1]
+        ref_dim = self.reference_states.shape[1]
+        if state_dim < ref_dim:
+            raise ValueError(
+                f"Detector reference states have dimension {ref_dim}, got input states of dimension {state_dim}"
+            )
+
+        if state_dim == ref_dim:
+            povm = self.povm
+            labels = self.labels
+        else:
+            povm = np.zeros((len(self.povm), state_dim, state_dim), dtype=complex)
+            povm[:, :ref_dim, :ref_dim] = self.povm
+            labels = self.labels
+            if self.erasure_label is not None:
+                erasure_element = np.eye(state_dim, dtype=complex)
+                erasure_element[:ref_dim, :ref_dim] -= np.sum(self.povm, axis=0)
+                erasure_element = 0.5 * (erasure_element + erasure_element.conj().T)
+                povm = np.concatenate([povm, erasure_element[None, ...]], axis=0)
+                labels = np.concatenate([labels, np.array([self.erasure_label])])
+
+        scores = np.real(np.einsum("aij,nji->na", povm, rho))
+        detected = labels[np.argmax(scores, axis=1)]
         return detected[0] if single_state else detected

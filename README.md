@@ -34,6 +34,11 @@ QCommE2E/
 └── docs/                         # Documentation
 ```
 
+## Documentation
+
+- [docs/architecture.md](docs/architecture.md): end-to-end simulator flow, including the matched measurement path used for BER and SER.
+- [docs/channel_models.md](docs/channel_models.md): mathematical forms, modeling assumptions, and limitations of the benchmark channel implementations.
+
 ## If you use this code, please cite the following paper
 
 Fading-Memory Quaternion-Based Kalman Filter for Quantum Channel PMD Compensation <https://doi.org/10.1109/ACCESS.2026.3675938>

@@ -8,19 +8,25 @@ Academic References:
 """Dephasing (phase damping) channel."""
 
 import numpy as np
+
 from .base_channel import BaseChannel
 
 
 class DephasingChannel(BaseChannel):
-    """Phase damping channel.
+    """Phase-damping channel.
 
-    E(rho) = (1 - p) rho + p Z rho Z
+    The qubit populations are preserved and the off-diagonal elements
+    are attenuated by a factor (1 - p).
     """
 
     def __init__(self, p: float = 0.1):
         super().__init__(dim=2)
+        self._validate_probability("p", p)
         self.p = p
-        self.Z = np.array([[1, 0], [0, -1]], dtype=complex)
 
     def apply(self, rho: np.ndarray) -> np.ndarray:
-        return (1 - self.p) * rho + self.p * self.Z @ rho @ self.Z
+        rho = self._coerce_density_matrix(rho, dim=2)
+        rho_out = rho.copy()
+        rho_out[0, 1] *= (1 - self.p)
+        rho_out[1, 0] *= (1 - self.p)
+        return rho_out

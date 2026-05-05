@@ -59,5 +59,8 @@ class QPSKModulator(Modulator):
 
     def symbols_to_bits(self, symbols: np.ndarray) -> np.ndarray:
         """Map symbol labels to a fixed two-bit representation."""
-        symbol_array = np.asarray(symbols, dtype=int) % len(self.BIT_LABELS)
-        return self.BIT_LABELS[symbol_array]
+        symbol_array = np.asarray(symbols, dtype=int)
+        bits = np.full(symbol_array.shape + (self.BIT_LABELS.shape[1],), -1, dtype=int)
+        valid = (symbol_array >= 0) & (symbol_array < len(self.BIT_LABELS))
+        bits[valid] = self.BIT_LABELS[symbol_array[valid]]
+        return bits

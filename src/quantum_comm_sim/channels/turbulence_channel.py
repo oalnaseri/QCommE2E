@@ -10,27 +10,32 @@ Academic References:
     Turbulence Channels with Pointing Errors, arXiv:1805.05572, 2018.
 """
 
-"""FSO turbulence channel (Malaga / Kolmogorov)."""
+"""FSO turbulence channel (Gamma-Gamma / Malaga-inspired)."""
 
 import numpy as np
+
 from .base_channel import BaseChannel
+from .bosonic_channel import apply_pure_loss_channel
 
 
 class TurbulenceChannel(BaseChannel):
     """Free-space optical turbulence channel.
 
-    Models irradiance fluctuations via the Malaga distribution or
-    Kolmogorov phase screens for wavefront distortion.
+    Models turbulence as a random transmittance process using a
+    Gamma-Gamma scintillation surrogate for Malaga-like fading,
+    combined with a passive attenuation channel.
     """
 
-    def __init__(self,
-                 turbulence_model: str = "malaga",
-                 alpha: float = 2.5,
-                 beta: float = 2.0,
-                 pointing_error: float = 1.0e-6,
-                 beam_waist: float = 0.02,
-                 link_distance_m: float = 1000.0,
-                 dim: int = 2):
+    def __init__(
+        self,
+        turbulence_model: str = "malaga",
+        alpha: float = 2.5,
+        beta: float = 2.0,
+        pointing_error: float = 1.0e-6,
+        beam_waist: float = 0.02,
+        link_distance_m: float = 1000.0,
+        dim: int = 2,
+    ):
         super().__init__(dim)
         self.turbulence_model = turbulence_model
         self.alpha = alpha
@@ -39,25 +44,21 @@ class TurbulenceChannel(BaseChannel):
         self.beam_waist = beam_waist
         self.link_distance_m = link_distance_m
 
-    def apply(self, rho: np.ndarray) -> np.ndarray:
-        """Apply turbulence-induced fading to an optical mode.
+    def _sample_transmissivity(self) -> float:
+        waist = max(self.beam_waist, 1.0e-12)
+        pointing_coupling = np.exp(-2.0 * (self.pointing_error / waist) ** 2)
 
-        We model the effect of turbulence as a random log-normal
-        attenuation of the optical field, which in this truncated
-        representation leads to a rescaling of the off-diagonal
-        elements and a fluctuation of the diagonal populations.
-        """
-        rho = np.asarray(rho, dtype=complex)
-        # Log-normal fading coefficient (Malaga-inspired)
-        h = np.random.lognormal(mean=0.0, sigma=0.5)
-        # Apply fading to coherences and bias diagonals
-        rho_out = rho.copy()
-        rho_out[0, 1] *= h
-        rho_out[1, 0] *= h
-        # Let the diagonal fluctuate mildly around the original values
-        diag = np.diag(rho_out).real
-        diag = diag / (diag.sum() + 1e-12)
-        rho_out[0, 0] = diag[0]
-        rho_out[1, 1] = diag[1]
-        rho_out = rho_out / np.trace(rho_out)
-        return rho_out
+        if self.turbulence_model in {"malaga", "gamma-gamma", "gamma_gamma"}:
+            large_scale = np.random.gamma(shape=self.alpha, scale=1.0 / self.alpha)
+            small_scale = np.random.gamma(shape=self.beta, scale=1.0 / self.beta)
+            scintillation = large_scale * small_scale
+        else:
+            sigma = 0.5 / np.sqrt(max(self.alpha, 1.0e-12))
+            scintillation = np.random.lognormal(mean=-0.5 * sigma**2, sigma=sigma)
+
+        return float(np.clip(pointing_coupling * scintillation, 0.0, 1.0))
+
+    def apply(self, rho: np.ndarray) -> np.ndarray:
+        rho = self._coerce_density_matrix(rho)
+        transmission = self._sample_transmissivity()
+        return apply_pure_loss_channel(rho, transmission)

@@ -8,6 +8,7 @@ Academic References:
 """Depolarizing qubit channel."""
 
 import numpy as np
+
 from .base_channel import BaseChannel
 
 
@@ -19,7 +20,10 @@ class DepolarizingChannel(BaseChannel):
 
     def __init__(self, p: float = 0.1):
         super().__init__(dim=2)
+        self._validate_probability("p", p)
         self.p = p
 
     def apply(self, rho: np.ndarray) -> np.ndarray:
-        return (1 - self.p) * rho + self.p * np.eye(2) / 2.0
+        rho = self._coerce_density_matrix(rho, dim=2)
+        identity = np.eye(2, dtype=complex)
+        return (1 - self.p) * rho + self.p * identity / 2.0

@@ -38,7 +38,13 @@ class Simulator:
     def run(self) -> Dict[str, Any]:
         if self.seed is not None:
             np.random.seed(self.seed)
-        symbols = np.random.randint(0, 4, size=self.num_symbols)
+        if hasattr(self.transmitter.modulator, "symbol_alphabet"):
+            alphabet = np.asarray(self.transmitter.modulator.symbol_alphabet(), dtype=int)
+            if alphabet.ndim != 1 or alphabet.size == 0:
+                raise ValueError("modulator.symbol_alphabet() must return a non-empty 1D array")
+            symbols = np.random.choice(alphabet, size=self.num_symbols)
+        else:
+            symbols = np.random.randint(0, 4, size=self.num_symbols)
         tx_states = self.transmitter.transmit(symbols)
         rx_states = []
         for state in tx_states:

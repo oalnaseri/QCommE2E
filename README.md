@@ -41,7 +41,22 @@ QCommE2E/
 
 ## If you use this code, please cite the following paper
 
-Fading-Memory Quaternion-Based Kalman Filter for Quantum Channel PMD Compensation <https://doi.org/10.1109/ACCESS.2026.3675938>
+1) QCommE2E: An Open-Source Simulation of End-to-End Quantum Communication Systems https://arxiv.org/abs/2605.24723
+
+```
+@ARTICLE{alnaseri2026qcomme2eopensourcesimulationendtoend,
+      title={QCommE2E: An Open-Source Simulation of End-to-End Quantum Communication Systems}, 
+      author={Omar Alnaseri},
+      year={2026},
+      eprint={2605.24723},
+      archivePrefix={arXiv},
+      primaryClass={quant-ph},
+      url={https://arxiv.org/abs/2605.24723}, 
+}
+```
+
+
+2) Fading-Memory Quaternion-Based Kalman Filter for Quantum Channel PMD Compensation <https://doi.org/10.1109/ACCESS.2026.3675938>
 
 ```
 @ARTICLE{alnaseri2026fading,
@@ -52,4 +67,5 @@ Fading-Memory Quaternion-Based Kalman Filter for Quantum Channel PMD Compensatio
   volume={14},
   number={},
   pages={46943-46952},
-  doi={10.1109/ACCESS.2026.3675938}}
+  doi={10.1109/ACCESS.2026.3675938}
+  }
